@@ -1,9 +1,11 @@
+import { StyledContainer } from './styles';
+import TodoApp from './views/TodoApp';
 
 function App() {
   return (
-    <div>
-      <p>Hello world</p>
-    </div>
+    <StyledContainer>
+      <TodoApp />
+    </StyledContainer>
   );
 }
 
