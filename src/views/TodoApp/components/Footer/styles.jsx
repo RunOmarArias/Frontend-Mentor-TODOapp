@@ -5,4 +5,6 @@ export const StyledFooter = styled.footer`
     align-items: center;
     justify-content: center;
     font-size: 0.8em;
+    margin: 1.5em;
+    color: darkgray;
 `;
