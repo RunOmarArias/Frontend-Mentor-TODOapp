@@ -10,7 +10,7 @@ import iconCircleBlueFilled from '../../../../../../../assets/icons/CircleIconBl
 import iconCircleBlueDarkFilled from '../../../../../../../assets/icons/CircleIconBlueDarkFilled.svg';
 import { useState } from 'react';
 
-export default function TodoListItem({ number }) {
+export default function TodoListItem({ todo }) {
     const [iconFlag, setIconFlag] = useState(true);
 
     const handleIconFlag = () => {
@@ -37,7 +37,7 @@ export default function TodoListItem({ number }) {
                         src={iconCircleBlueDarkFilled}
                     />
                 )}
-                <StyledTodoButton>Todo {number}</StyledTodoButton>
+                <StyledTodoButton>{todo}</StyledTodoButton>
             </StyledTodoListCheck>
             <StyledTodoListIconCross type='image' src={iconCross} alt='cross' />
         </StyledTodoListItem>
