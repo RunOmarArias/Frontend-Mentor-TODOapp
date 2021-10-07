@@ -11,7 +11,7 @@ export const StyledTodo = styled.main`
 
 //TodoAdd
 
-export const StyledTodoAdd = styled.div`
+export const StyledTodoAdd = styled.form`
     display: flex;
     flex-direction: row;
     background-color: hsl(235, 24%, 19%);
