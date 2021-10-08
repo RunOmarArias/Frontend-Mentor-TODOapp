@@ -4,7 +4,7 @@ import db from '../../../../../../config/firebaseConfig';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 
-export default function TodoList() {
+export default function TodoList({ flagChangeList }) {
 
     const [todoData, setTodoData] = useState([]);
     const todosCollection = collection(db, 'todos');
@@ -16,7 +16,7 @@ export default function TodoList() {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [flagChangeList]);
 
     return (
         <StyledTodoListContainer>
