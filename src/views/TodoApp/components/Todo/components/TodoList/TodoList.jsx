@@ -7,6 +7,7 @@ import { collection, getDocs } from 'firebase/firestore';
 export default function TodoList({ flagChangeList }) {
 
     const [todoData, setTodoData] = useState([]);
+    const [deletedTodoFlag, setDeletedTodoFlag] = useState(false);
     const todosCollection = collection(db, 'todos');
 
     const getData = async () => {
@@ -16,13 +17,21 @@ export default function TodoList({ flagChangeList }) {
 
     useEffect(() => {
         getData();
-    }, [flagChangeList]);
+    }, [flagChangeList, deletedTodoFlag]);
+
+    const HandleDeleteTodo = (value) => {
+        if(value && !deletedTodoFlag) {
+            setDeletedTodoFlag(true);
+        } else {
+            setDeletedTodoFlag(!deletedTodoFlag);
+        }
+    }
 
     return (
         <StyledTodoListContainer>
             {
                 todoData.map((todo) => (
-                    <TodoListItem key={todo.id} todo={todo.todo} />
+                    <TodoListItem key={todo.id} todo={todo.todo} id={todo.id} onDelete={HandleDeleteTodo} />
                 ))
             }
         </StyledTodoListContainer>
